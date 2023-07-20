@@ -1,205 +1,343 @@
-<!DOCTYPE html><html><head>
-  <meta charset="utf-8">
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>of#0001</title>
-  <meta name="theme-color" content="#FFFFFF">
-  <link rel="icon" type="image/x-icon" href="images/heal.png">
-  <meta property="og:title" content="of#0001">
-  <meta property="og:url" content="of#0001">
-  <meta property="og:image" content="images/heal.png">
-  <meta property="og:thumbnail" content="images/murder.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:description" content="of#0001">
-  <meta property="keywords" content="zz sleepy">
-  <meta property="og:description" content="of#0001">  
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: monospace;
-            font-size: 16px;
-            padding: 20px;
-            display: flex;
-            overflow: hidden;
-            flex-direction: column;
-            align-items: flex-start;
-        }
+  <title>skem's discord status</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJEB6H2DV2"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" data-name="TokenSigning" data-by="Web-eID extension" src="chrome-extension://ncibgoaomkmdpilpocfeponihegamlic/token-signing-page-script.js"></script>
+  <style>
+    .noselect {
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+    }
 
-        #terminal {
-            flex-grow: 1;
-            background-color: black;
-            padding: 10px;
-        }
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
-        #output-container {
-            height: calc(80vh - 50px);
-            overflow-y: scroll;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 100;
+}
 
-        #output-container::-webkit-scrollbar {
-            display: none;
-        }
+body {
+  background: #0d0d0d;
+  overflow: hidden;
+}
 
-        #output {
-            white-space: pre-wrap;
-        }
+body::before {
+  content: "";
+  background: #b987ff;
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin: auto;
+  animation: bar 2s ease-in-out;
+}
 
-        #input-container {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
+#wrapper {
+  width: 100vw;
+  height: 100vh;
+}
 
-        #prompt {
-            color: white;
-            font-weight: bold;
-            margin-right: 5px;
-        }
+#main {
+  animation: opacity 3s ease-in-out, moveup 2s ease-in-out;
+  position: absolute;
+  top: 40vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  filter: blur(0rem);
+  transition: filter 1s;
+}
 
-        #command-input {
-            background-color: transparent;
-            border: none;
-            color: white;
-            outline: none;
-            width: 100%;
-        }
+#main h1 {
+  color: white;
+  font-size: 35px;
+  letter-spacing: 1px;
+  font-weight: 100;
+  animation: movefront 3s ease-in-out;
+  white-space: nowrap;
+}
 
-        .glow {
-            animation: glow 1s infinite alternate;
-        }
+#links {
+  text-align: right;
+}
 
-        @keyframes glow {
-            0% {
-                color: white;
-                text-shadow: 0 0 5px white;
-            }
-            50% {
-                color: white;
-                text-shadow: 0 0 20px white;
-            }
-            100% {
-                color: white;
-                text-shadow: 0 0 5px white;
-            }
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var output = document.getElementById('output');
-            var input = document.getElementById('command-input');
-            var prompt = document.getElementById('prompt');
-
-            function scrollToBottom() {
-                var outputContainer = document.getElementById('output-container');
-                outputContainer.scrollTop = outputContainer.scrollHeight;
-            }
-
-            function printOutput(message) {
-                output.innerHTML += message;
-                scrollToBottom();
-            }
-
-            function processCommand(command) {
-                command = command.trim().toLowerCase();
-
-                switch (command) {
-                    case 'help':
-                        printOutput("roblox - add me on roblox\n");
-                        printOutput("discord - best discord server ong!!!\n");
-                        printOutput("social - Display social networkss\n");
-                        printOutput('clear - clear the terminal\n\n');
-                        break;
+#links p {
+  align-self: right;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 100;
+  position: absolute;
+  cursor: pointer;
+}
 
 
-                    case 'clear':
-                        output.textContent = welcomeMessage;
-                        break;
+#links p a {
+  color: white;
+  text-decoration: none;
+}
 
-                    case 'roblox':
-                        printOutput("https://www.roblox.com/users/1234639193/profile\n");
-                        break;
+#links p::after {
+  content: "";
+  background: #8b8bff;
+  display: block;
+  width: 0;
+  left: 0;
+  position: absolute;
+  height: 1px;
+  margin-top: -1px;
+  transition: .2s ease-out;
+}
 
-                    case 'discord':
-                        printOutput("https://discord.gg/really\n");
-                        break;
-                    
-                    case 'social':
-                    printOutput("tiktok  -  https://www.tiktok.com/@murdder\n");
-                    printOutput("instagram  -  https://www.instagram.com/realitymurder\n");
-                    printOutput("github  -  https://github.com/murdamurdamurda\n");
-                      break;
+#links p:hover::after {
+  width: 100%;
+  transition: .2s ease-out;
+}
 
-                    default:
-                        printOutput("Invalid command, type 'help' for a list of available terminal commands\n");
-                        break;
-                }
-            }
+#header {
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-            input.addEventListener('keydown', function (event) {
-                if (event.key === 'Enter') {
-                    var command = input.value;
-                    printOutput('<span class="glow">' + prompt.innerHTML + ' ' + command + '</span>\n\n');
-                    input.value = '';
-                    processCommand(command);
-                }
-            });
+#header p {
+  color: white;
+  float: left;
+  font-size: 28px;
+  white-space: nowrap;
+}
 
-            var welcomeMessage = `\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+#header select {
+  border: solid 1px #303030;
+  background: #0d0d0d;
+  color: white;
+  padding: 5px;
+  float: right;
+}
 
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣤⣤⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⡦⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⣆⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢻⣿⡬⣄⢠⢠⣿⡄⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢠⣿⣿⣻⣿⣿⣿⣿⣿⡸⣿⣿⢻⣇⠙⣓⢻⣿⡞⣿⣷⢳⡀⠀⠀⠀
-⠀⠀⠀⠀⢜⣿⡏⣟⣿⡿⣧⢿⣻⢰⡉⢻⡏⢟⣃⠹⠯⢻⣷⢛⣿⠺⣷⠀⠀⠀
-⠀⠀⠀⢀⢸⣿⣇⢹⣿⡇⣵⠘⠭⠸⣷⡀⡳⢢⡄⠀⠀⢰⣿⢸⡷⢸⣿⡄⠀⠀
-⠀⠀⠀⢸⡆⢻⣿⠈⣿⣿⠁⣤⠀⠀⢹⣷⣿⣿⡏⠀⡤⠃⣿⡞⠁⢸⣿⡇⠀⠀
-⠀⠀⠀⣿⣿⠈⢽⣇⢿⣿⡇⠟⠳⠀⢸⣿⣿⣿⣿⣿⣾⠇⣿⣧⠀⢸⣿⡇⠀⠀
-⠀⠀⠀⣿⣿⡀⠀⠙⢸⣿⣇⠰⣴⣶⣿⣿⣷⣾⡿⠟⠁⠀⢻⢿⠀⢸⣿⣷⠀⠀
-⠀⠀⠀⣿⣿⡇⠀⠀⠈⡟⣿⠀⠀⠉⠉⠉⢉⣠⣴⣧⢄⠀⠈⠌⠀⢻⣿⣿⠀⠀
-⠀⠀⠀⣿⣿⣿⠀⠀⠀⢳⢹⡀⠀⠀⠂⠁⣿⣿⣿⠏⠀⠈⠁⠐⠀⢼⣿⣿⡄⠀
-⠀⠀⢰⣿⣿⣿⡆⠀⠀⠈⠇⠃⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠈⢸⣿⣿⡇⠀
-⠀⠀⢸⢻⣿⣿⡇⠀⠀⠂⠀⠀⠰⣄⠀⠀⠀⣀⣤⣶⠶⠏⠀⠀⠀⠘⣿⣿⡇⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n\nWelcome back of#0001\nType 'help' for a list of available terminal commands\n\n`;
+#line {
+  padding: 10px;
+  color: #303030;
+}
 
-            function typeWelcomeMessage() {
-                printOutput('<span class="glow">' + welcomeMessage + '</span>');
-                prompt.style.display = 'inline';
-            }
+#line hr {
+  color: #303030;
+  width: 100%;
+}
 
-            typeWelcomeMessage();
-        });
-    </script>
+#handles {
+  align-self: center;
+  width: 90%;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 10px;
+  padding: 20px;
+}
 
+.handle {
+  border: solid 1px #303030;
+  color: #fff;
+  border-radius: 3px;
+  padding: 20px;
+  font-size: 14px;
+}
+
+#username {
+  font-size: 22px;
+  overflow: hidden;
+  width: 70%;
+}
+
+#username a {
+  text-decoration: none;
+  color: white;
+  transition: .4s;
+}
+
+#username a:hover {
+  text-decoration: none;
+  color: #F0B4B4;
+  transition: .4s;
+}
+
+#date {
+  color: #666666;
+}
+
+#price {
+  font-size: 16px;
+  float: right;
+}
+
+#button {
+  margin-top: 15px;
+  background: #0d0d0d;
+  border: solid 1px #303030;
+  color: gray;
+  padding: 10px 50px;
+  text-align: center;
+  font-size: 14px;
+  transition: .4s;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#button:hover {
+  transition: .4s;
+  color: #F0B4B4;
+}
+
+#curtainleft {
+  height: 100vh;
+  left: -100%;
+  position: fixed;
+  background: rgb(26, 26, 26);
+  width: 50%;
+  animation: moveleft 1.5s ease-in-out;
+}
+
+#curtainright {
+  height: 100vh;
+  right: -100%;
+  position: fixed;
+  background:rgb(26, 26, 26);
+  width: 50%;
+  animation: moveright 1.5s ease-in-out;
+}
+
+
+#discord {
+  color: rgb(30, 222, 30);
+  font-weight: 600;
+}
+
+@keyframes bar {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes moveup {
+  0% {
+    top: 50vh;
+  }
+
+  50% {
+    top: 50vh;
+  }
+
+  100% {
+    top: 40vh;
+  }
+}
+
+
+@keyframes movefront {
+  0% {
+    font-size: 30px;
+  }
+
+  60% {
+    font-size: 30px;
+  }
+
+  100% {
+    font-size: 35px;
+  }
+}
+
+
+@keyframes movedown {
+  0% {
+    top: 40vh;
+  }
+
+  50% {
+    top: 40vh;
+  }
+
+  100% {
+    top: 47.5vh;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes moveleft {
+  0% {
+    left: 0%;
+  }
+
+  20% {
+    left: 0%;
+  }
+
+  100% {
+    left: -100vw;
+  }
+}
+
+@keyframes moveright {
+  0% {
+    right: 0%;
+  }
+
+  20% {
+    right: 0%;
+  }
+
+  100% {
+    right: -100vw;
+  }
+}
+  </style>
 </head>
 <body>
-    <div id="terminal">
-        <div id="output-container">
-            <pre id="output"><span class="glow">
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
-
-</span></pre>
-        </div>
-        <div id="input-container">
-            <span id="prompt" style="display: inline;">user@zzzzz:~$</span>
-            <input id="command-input" type="text">
-        </div>
+  <div id="curtain">
+    <div id="curtainleft"></div>
+    <div id="curtainright"></div>
+  </div>
+  <div id="wrapper"></div>
+  <div id="main">
+    <h1 id="header">skem's discord status</h1>
+    <div id="links">
+      <p id="steambutton" class="noselect">status: <span id="discord">not terminated</span></p>
+      <br class="noselect">
+      <p><a href="https://discord.com/users/875728484998193203" target="_blank">current discord: @topstepper</a></p>
+      <br class="noselect">
+      <p id="steambutton" class="noselect">ID: 875728484998193203</p>
     </div>
-    <script>
-        function scrollToBottom() {
-            var outputContainer = document.getElementById('output-container');
-            outputContainer.scrollTop = outputContainer.scrollHeight;
-        }
-        document.getElementById('command-input').addEventListener('keydown', function (event) {
-        if (event.key === 'Enter') {
-            setTimeout(scrollToBottom, 0); 
-        }
-    });
-</script>
+  </div>
 
 
 </body></html>
