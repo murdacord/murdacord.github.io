@@ -1,1 +1,0 @@
-new Typed("#typed",{strings:["im sleeping zzz"],typeSpeed:120,backSpeed:120,backDelay:1e3,startDelay:120,loop:!0,showCursor:!1});
