@@ -8,101 +8,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>murder</title>
-    <style>
-        body {
-            background-color: #000;
-            overflow: hidden;
-        }
+  <style>
+    #container {
+      height: 1000px;
+      overflow-y: scroll;
+    }
 
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background-color: #fff;
-            animation: particle-fall linear infinite;
-        }
-
-        @keyframes particle-fall {
-            0% {
-                transform: translateY(-100%);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-    </style>
+    body {
+      background-color: #18181B;
+      color: #FFFFFF;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
 </head>
-    <script>
-        
-        for (let i = 0; i < 100; i++) {
-            const particle = document.createElement("div");
-            particle.classList.add("particle");
-            particle.style.left = Math.random() * window.innerWidth + "px";
-            particle.style.animationDuration = Math.random() * 3 + 2 + "s";
-            document.body.appendChild(particle);
-        }
-    </script>
+<body>
+  <div id="container">
+    <pre style="color:white">
+    This bot is still in public beta, The bot has lots of downtime and bugs!
+    This is still outdated.
+
+    Currently there are 81 commands on the bot. Idk about here but gang shit
+      
+    ┌── subcommands
+    |    ├── autoresponder set <trigger> <response>: autoresponder
+    |    ├── autoresponder remove <trigger>: removes the trigger
+    |    ├── autoresponder list: displays all autoresponder triggers
+    |    ├── skullboard set <channel>: set up the channel for the skull msg
+    |    ├── skullboard remove <channel>: removes the skull channel
+    |    ├── role add [member] <role>: adds an role
+    |    ├── role remove [member] <role>: removes the role
+    ┌── Information
+    |    ├── help[h]: help command for murder
+    |    ├── botinfo[about|system|sys|bi]: View some information on wonder
+    |    ├── serverinfo[si|server]: View some information on a server
+    |    ├── emojiinfo : get information of an emoji (only custom ones)
+    |    ├── userinfo[ui|user] [user]: View some information on a user
+    |    ├── avatar[av] [user]: View a user's avatar
+    |    ├── serveravatar[sav] [user]: View a member's server avatar
+    |    ├── banner[bnr] [user]: View a user's banner
+    |    ├── invite: Get the bot's invite link
+    |    ├── uptime: No description
+    |    ├── oldest: gets the oldest discord account of the server
+    |    ├── membercount[mc]: View the server's member count
+    |    ├── servericon[sicon] [invite]: Get a server's icon
+    |    ├── serverbanner[sbanner] [invite]: Get a server's banner
+    |    ├── ping: Get the bot's latency
+    |    ├── roleinfo <role>: View some information on a role
+    |    ├── support: No description
+    |    ├── roleinfo [role]: get informations of an role
+    ┌── miscellaneous
+    |    ├── botinvite [botid]: create an invite for a bot
+    |    ├── pin [message link]: Pins the specific message by ID
+    |    ├── unpin [message link]: Unpins the specific message by ID
+    |    ├── boosters: Display the list of server boosters
+    |    ├── boostcount: Display the number of server boosts
+    |    ├── enlarge [emoji]: Enlarge an Emoji
+    |    ├── guildvanity: displays the vanity with the guild
+    |    ├── checkvanity [vanity]: Checks if the provided vanity name is available
+    |    ├── firstmessage[firstmsg]: It retrieves the first message in a channel
+    |    ├── passwordgen: It generates a random password and sends it in dms
+    |    ├── dog: gets a picture from a dog
+    |    ├── cat: get a picture from a cat
+    ┌── Moderation
+    |    ├── ban [member] [reason]: bans the member and sends them an dm
+    |    ├── nuke: delete and recreate the same channel
+    |    ├── hide [channel]: hides the mentioned channel
+    |    ├── unhide [channel]: unhides the mentioned channel
+    |    ├── lock [channel]: locks the mentioned channel
+    |    ├── unlock [channel]: unlocks the mentioned channel
+    |    ├── lockall [lockdown]: locks all channel
+    |    ├── imagemute [member]: Image mute a member
+    |    ├── imageunmute [member]: Image unmute a member
+    |    ├── reactionmute [member]: reaction mute a member
+    |    ├── reactionunmute [member]: reaction unmute a member
+    |    ├── bans: see all banned users that got banned from the server
+    |    ├── purge <amount>: purges the amount of messages
+    |    ├── seticon [icon.url]: Set the server's icon
+    |    ├── setname [name]: set the server's name
+    ┌── Moderation
+    |    ├── 8ball [question]: Ask the magic 8-ball a question
+    |    ├── racistrate: rates you racial
+    |    ├── loyalrate: rates you loyalical
+    |    ├── cuterate: rates you cuteness
+    |    ├── bitches: how many bitches you have(0)
+    |    ├── cool: how cool you really are (super cool)
+    |    ├── dumbrate: you dumbrate
+    ┌── roleplay
+    |    ├── kill [member]: kill a member
+    |    ├── pat [member]: pat a member
+    |    ├── slap [member]: slap a member
+    |    ├── hug [member]: hug a member
+    |    ├── bully [member]: bully a member
+    |    ├── cringe [member]: cringe somebody :skull:
+
+  </div>
+
+  <script>
+    const container = document.getElementById("container");
+    container.scrollTop = container.scrollHeight;
+  </script>
 </body>
 </html>
-
-    <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/1142507910535069696/1147206131433865217/wock0036s_avatar.png">
-    <meta name="description" content="the only multipurpose bot you need">
-    <meta name="keywords" content="murder, discord, murder bot, murderbot, discord bot">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#2b2d31">
-    <meta property="og:site_name" content="murder.win">
-    <meta property="og:url" content="/">
-    <meta property="og:title" content="murder">
-    <meta property="og:description" content="the only multipurpose bot you need">
-    <meta property="og:image" content="https://cdn.discordapp.com/attachments/1142507910535069696/1147206131433865217/wock0036s_avatar.png">
-
-  <body>
-  <pre style="color:white">
- This bot is still in public beta, The bot has lots of downtime and bugs!
-This is still outdated.
-
-Currently there are 81 commands on the bot. Idk about here but gang shit
-
-   addrole  (member)  –    adds an role to the mentioned user   
-  auth  (guildid)     – authorize a guild (owner only lol)           
-  autoresponderlist   – sends your a responderlist
-  ban      (member)   – bans a member (sends a direct message to them)
-  bitches             – how many bitches you have      
-  bitcoin             – see current bitcoin prices 
-  blacklist (memberid) – blacklist user (owner only again)
-  botinfo             – botinfo lol
-  bully   (member)    – bully someone 
-  cat                 – sends a picture of an cat
-  coinflip            – flips a coin
-  coolrate            – how cool you really are
-  cuterate            – how cute you really are
-  dog                 – sends a dog picture
-  dumbrate            – how dumb you really are
-  eightball           – talk with the magic ball
-  ethereum            – view current ethereum prices
-  fortnitemap         – current fortnite map
-  hug       (member)  – hug someone             
-  instagram  (name)   – view someones instagram account       
-  kick     (member)   – kick someone (also sends them a direct message) 
-  kill    (member)    – kill someone        
-  kiss    (member)    – kiss someone   
-  lock      #channel  – lock a channel  
-  lockall             – locks all channels
-  loyalrate           – how loyal are you
-  membercount         – view guilds membercount
-  pat   (member)      – pat someone
-  ping                – ping of the bot
-  racistrate          – are you racist?!?!
-  removeautoresponder (autoresponder)– removes a current autoresponder
-  roleall             – gives all the mentioned role
-  setautoresponder (trigger) (message)  – sets a autoresponder for you guild
-  slap       (member) – slap someone
-  support             – support server if u need help
-  unblacklist         – unblacklist someone (owner only) appeal
-  unlock     #channel         – unlock channel
-  unlockall           –unlocks all channels
-  userinfo    (member)     –userinfo of an member
-  welcomeadd  (channel)  (message)    – adds an welcome message when member joins guild
-
-</pre>
